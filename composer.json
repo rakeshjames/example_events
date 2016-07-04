@@ -1,0 +1,14 @@
+{
+  "name": "drupal/example_events",
+  "type": "drupal-module",
+  "description": "Example module for Event handling in Drupal 8.",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/example_events",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "http://drupal.org/project/issues/example_events",
+    "source": "http://cgit.drupalcode.org/example_events"
+  },
+  "require": { }
+}

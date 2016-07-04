@@ -1,0 +1,5 @@
+name: Example_events
+type: module
+description: Example module for Event handling in Drupal 8.
+core: 8.x
+package: Examples
