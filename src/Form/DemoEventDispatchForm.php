@@ -31,16 +31,15 @@ class DemoEventDispatchForm extends FormBase {
   public function buildForm(array $form, FormStateInterface $form_state) {
     $form['name'] = array(
       '#type' => 'textfield',
-      '#title' => $this->t('Name'),
-      '#description' => $this->t('Name'),
+      '#title' => $this->t('Reference'),
+      '#description' => $this->t('Type something here that will be set to the event object, while subscribing it.'),
       '#maxlength' => 64,
       '#size' => 64,
     );
     $form['dispatch'] = array(
       '#type' => 'submit',
-      '#title' => $this->t('Dispatch'),
+      '#value' => $this->t('Dispatch'),
     );
-
     return $form;
   }
 
@@ -48,10 +47,10 @@ class DemoEventDispatchForm extends FormBase {
    * {@inheritdoc}
    */
   public function submitForm(array &$form, FormStateInterface $form_state) {
+    // Following is the example for
+    // How to dispatch an event in Drupal 8?
     $dispatcher = \Drupal::service('event_dispatcher');
-    $e = new ExampleEvent();
-    drupal_set_message($e->myEventDescription());
-    $event = $dispatcher->dispatch('example.submit', $e);
+    $event = new ExampleEvent($form_state->getValue('name'));
+    $dispatcher->dispatch(ExampleEvent::SUBMIT, $event);
   }
-
 }
